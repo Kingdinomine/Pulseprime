@@ -1,0 +1,436 @@
+<html><head><base href="https://pulseprime.trade"><title>PulsePrime | Advanced Forex Trading Platform</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+:root {
+  --primary: #00d1b2;
+  --secondary: #3273dc;
+  --background: #f5f5f5;
+  --text: #4a4a4a;
+  --card: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--background);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+nav {
+  background-color: var(--card);
+  padding: 20px 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+nav .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 400;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--primary);
+}
+
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(45deg, var(--primary), var(--secondary));
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8dHJhZGluZ3x8fHx8fDE2ODU5ODk1Nzc&ixlib=rb-4.0.3&q=80&w=1080') no-repeat center center;
+  background-size: cover;
+  opacity: 0.1;
+}
+
+.hero h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s forwards 0.5s;
+}
+
+.hero p {
+  font-size: 18px;
+  max-width: 600px;
+  margin: 0 auto 30px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s forwards 0.7s;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: white;
+  color: var(--primary);
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s forwards 0.9s;
+}
+
+.cta-button:hover {
+  background-color: var(--primary);
+  color: white;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.features {
+  padding: 100px 0;
+}
+
+.features h2 {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 50px;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.feature-card {
+  background-color: var(--card);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.feature-card h3 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: var(--primary);
+}
+
+.feature-card p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.markets {
+  background-color: var(--card);
+  padding: 100px 0;
+}
+
+.markets h2 {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 50px;
+}
+
+.market-ticker {
+  display: flex;
+  overflow-x: auto;
+  padding-bottom: 20px;
+}
+
+.market-item {
+  flex: 0 0 auto;
+  margin-right: 20px;
+  padding: 15px;
+  background-color: var(--background);
+  border-radius: 10px;
+  min-width: 150px;
+}
+
+.market-item h4 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.market-item .price {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.market-item .change {
+  font-size: 14px;
+  color: #4caf50;
+}
+
+.market-item .change.negative {
+  color: #f44336;
+}
+
+footer {
+  background-color: var(--text);
+  color: white;
+  padding: 50px 0;
+  text-align: center;
+}
+
+footer p {
+  margin-bottom: 20px;
+}
+
+.social-links a {
+  color: white;
+  font-size: 24px;
+  margin: 0 10px;
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: var(--primary);
+}
+
+#chart-container {
+  width: 100%;
+  height: 400px;
+  margin-top: 50px;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
+}
+
+.floating-element {
+  animation: float 6s ease-in-out infinite;
+}
+
+</style>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <nav>
+    <div class="container">
+      <div class="logo">PulsePrime</div>
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#markets">Markets</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="https://websim.ai/pulseprime/login" class="cta-button">Login</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Redefine Your Trading Experience</h1>
+      <p>PulsePrime offers cutting-edge forex trading solutions with real-time market data, advanced analytics, and seamless transactions.</p>
+      <a href="https://websim.ai/pulseprime/signup" class="cta-button">Start Trading Now</a>
+    </div>
+  </section>
+
+  <section id="features" class="features">
+    <div class="container">
+      <h2>Powerful Features</h2>
+      <div class="feature-grid">
+        <div class="feature-card floating-element">
+          <h3>Real-Time Data</h3>
+          <p>Access up-to-the-second market information to make informed decisions.</p>
+        </div>
+        <div class="feature-card floating-element">
+          <h3>Advanced Analytics</h3>
+          <p>Utilize our state-of-the-art tools for in-depth market analysis and forecasting.</p>
+        </div>
+        <div class="feature-card floating-element">
+          <h3>Secure Transactions</h3>
+          <p>Enjoy peace of mind with our bank-grade security measures for all your trades.</p>
+        </div>
+        <div class="feature-card floating-element">
+          <h3>Flexible Trading Options</h3>
+          <p>Choose from a wide range of trading instruments and strategies to suit your style.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="markets" class="markets">
+    <div class="container">
+      <h2>Live Markets</h2>
+      <div class="market-ticker" id="market-ticker">
+        <!-- Market data will be dynamically inserted here -->
+      </div>
+      <div id="chart-container">
+        <canvas id="trading-chart"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2023 PulsePrime. All rights reserved.</p>
+      <div class="social-links">
+        <a href="https://websim.ai/pulseprime/twitter" target="_blank">Twitter</a>
+        <a href="https://websim.ai/pulseprime/facebook" target="_blank">Facebook</a>
+        <a href="https://websim.ai/pulseprime/linkedin" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Simulated market data
+    const marketData = [
+      { symbol: 'EUR/USD', price: 1.2134, change: 0.05 },
+      { symbol: 'GBP/USD', price: 1.4156, change: -0.02 },
+      { symbol: 'USD/JPY', price: 109.21, change: 0.1 },
+      { symbol: 'AUD/USD', price: 0.7789, change: -0.03 },
+      { symbol: 'USD/CAD', price: 1.2078, change: 0.01 },
+      { symbol: 'USD/CHF', price: 0.8967, change: -0.01 },
+    ];
+
+    function updateMarketTicker() {
+      const ticker = document.getElementById('market-ticker');
+      ticker.innerHTML = '';
+      marketData.forEach(item => {
+        const marketItem = document.createElement('div');
+        marketItem.className = 'market-item';
+        marketItem.innerHTML = `
+          <h4>${item.symbol}</h4>
+          <div class="price">${item.price.toFixed(4)}</div>
+          <div class="change ${item.change >= 0 ? 'positive' : 'negative'}">
+            ${item.change >= 0 ? '+' : ''}${item.change.toFixed(2)}%
+          </div>
+        `;
+        ticker.appendChild(marketItem);
+      });
+    }
+
+    updateMarketTicker();
+    setInterval(updateMarketTicker, 5000); // Update every 5 seconds
+
+    // Trading chart
+    const ctx = document.getElementById('trading-chart').getContext('2d');
+    const chart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['1m', '5m', '15m', '30m', '1h', '4h', '1d'],
+        datasets: [{
+          label: 'EUR/USD',
+          data: [1.2134, 1.2140, 1.2145, 1.2150, 1.2155, 1.2160, 1.2165],
+          borderColor: 'rgb(75, 192, 192)',
+          tension: 0.1
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          y: {
+            beginAtZero: false
+          }
+        }
+      }
+    });
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // Parallax effect on scroll
+    window.addEventListener('scroll', () => {
+      const scrolled = window.pageYOffset;
+      const parallaxElements = document.querySelectorAll('.floating-element');
+      parallaxElements.forEach(el => {
+        const speed = 0.5;
+        el.style.transform = `translateY(${scrolled * speed}px)`;
+      });
+    });
+
+    // Animated counter for statistics
+    function animateValue(obj, start, end, duration) {
+      let startTimestamp = null;
+      const step = (timestamp) => {
+        if (!startTimestamp) startTimestamp = timestamp;
+        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+        obj.innerHTML = Math.floor(progress * (end - start) + start);
+        if (progress < 1) {
+          window.requestAnimationFrame(step);
+        }
+      };
+      window.requestAnimationFrame(step);
+    }
+
+    // Add this to trigger animations when scrolled into view
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
+        }
+      });
+    });
+
+    document.querySelectorAll('.feature-card').forEach(card => {
+      observer.observe(card);
+    });
+  </script>
+</body></html>
